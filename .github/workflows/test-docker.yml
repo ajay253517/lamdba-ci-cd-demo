@@ -4,7 +4,7 @@ on:
   push:
    
 jobs:
-  build:
+  job1:
     runs-on: ubuntu-latest
     outputs:
       dir: ${{ steps.changes.outputs.dir}}
@@ -16,5 +16,8 @@ jobs:
         id: changes
         run: |
           echo "::set-output name=dir::$(git diff --name-only HEAD~1 | awk -F "/*[^/]*/*$" '{ print ($1 == "" ? "." : $1); }' | sort | uniq)
-      - name: printing changed directory
-        run: echo ${{ outputs.dir }}
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - run: echo ${{ needs.job1.outputs.dir}}
