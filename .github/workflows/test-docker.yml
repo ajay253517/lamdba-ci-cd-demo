@@ -1,0 +1,20 @@
+
+name: ci-dags
+on: 
+  push:
+   
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      dir: ${{ steps.changes.outputs.dir}}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: get changed directory
+        id: changes
+        run: |
+          echo "::set-output name=dir::$(git diff --name-only HEAD~1 | awk -F "/*[^/]*/*$" '{ print ($1 == "" ? "." : $1); }' | sort | uniq)
+      - name: printing changed directory
+        run: echo ${{ outputs.dir }}
