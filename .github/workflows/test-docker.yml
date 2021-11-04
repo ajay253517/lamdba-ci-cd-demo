@@ -26,4 +26,4 @@ jobs:
           if [[ ${GITHUB_REF##*/} == *feature* ]]; then
             echo "Running on ${GITHUB_REF##*/}"
             /home/runner/work/lamdba-ci-cd-demo/lamdba-ci-cd-demo/ci-scripts/tf-validate.sh "${GITHUB_SHA}"
-          fi
+            cd
