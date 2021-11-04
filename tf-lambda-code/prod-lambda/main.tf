@@ -1,4 +1,4 @@
-##Main terraform file code
+##Main terraform file prod code
 terraform {
   required_version = ">= 1.0.9"
   backend "s3" {
