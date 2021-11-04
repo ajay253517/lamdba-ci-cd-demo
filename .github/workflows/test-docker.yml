@@ -20,3 +20,10 @@ jobs:
             echo "Running on ${GITHUB_REF##*/}"
             /home/runner/work/lamdba-ci-cd-demo/lamdba-ci-cd-demo/ci-scripts/py-lint.sh "${GITHUB_SHA}"
           fi
+      - name: terraform-validation 
+        id: validate-tf-code
+        run: |
+          if [[ ${GITHUB_REF##*/} == *feature* ]]; then
+            echo "Running on ${GITHUB_REF##*/}"
+            /home/runner/work/lamdba-ci-cd-demo/lamdba-ci-cd-demo/ci-scripts/tf-validate.sh "${GITHUB_SHA}"
+          fi

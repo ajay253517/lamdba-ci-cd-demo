@@ -2,7 +2,7 @@
 ### Script to check the pylint score 
 CO_ID=$1
 fList=$(git diff-tree --no-commit-id --name-only -r $CO_ID | grep "\.py")
-[ -z "$fList" ] && echo "no tests" && exit 0 || pip install pylint
+[ -z "$fList" ] && echo "no python files modified" && exit 0 || pip install pylint
 
 for i in `echo $fList | xargs -n1 | grep "\.py"`
 do
