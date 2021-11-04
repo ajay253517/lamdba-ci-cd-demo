@@ -11,7 +11,7 @@ do
   if  [ "$?" == "0" ]; then
     echo "file exists and installing requirements"
     SCORE=$(pylint $i | sed -n 's/^Your code has been rated at \([-0-9.]*\)\/.*/\1/p' | cut -d "." -f1)
-       if [ $SCORE -ge 8 ]; then
+       if [ $SCORE -ge 1 ]; then
          echo "File $i pylint value is: $SCORE and success"
        else 
          echo "File $i pylint value is: $SCORE and it's failed"
