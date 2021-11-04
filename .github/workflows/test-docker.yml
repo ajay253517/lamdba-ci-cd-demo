@@ -16,7 +16,7 @@ jobs:
       - name: pylint-score
         id: pylint
         run: |
-          if [[ ${GITHUB_REF##*/} == *feature/* ]]; then
+          if [[ ${GITHUB_REF##*/} == *feature* ]]; then
             echo "Running on ${GITHUB_REF##*/}"
             pwd && ls -lthr
           fi
