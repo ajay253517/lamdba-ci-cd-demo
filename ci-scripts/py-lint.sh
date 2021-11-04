@@ -18,6 +18,6 @@ do
          exit 1
        fi
     else
-      echo "file doesnt exists"
+      echo "no file chanaged"
     fi
   done
