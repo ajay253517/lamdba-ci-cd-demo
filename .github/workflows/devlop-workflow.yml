@@ -4,7 +4,7 @@ on:
     branches:
       - 'develop'
 jobs:
-  changed_dir
+  changed_dir:
     runs-on: ubuntu-latest
     outputs:
       dir: ${{ steps.changes.outputs.dir}}
