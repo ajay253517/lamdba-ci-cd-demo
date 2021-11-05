@@ -2,7 +2,7 @@ import json
 
 def handler(event, context):
     body = {
-        "message": "Hello Running second-code!!!",
+        "message": "Hello Running second-code!!",
         "input": event
     }
     response = {
