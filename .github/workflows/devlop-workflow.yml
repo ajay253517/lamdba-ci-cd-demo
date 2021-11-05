@@ -1,0 +1,22 @@
+name: develop-deploy
+on: 
+  push:
+    branches:
+      - 'develop'
+jobs:
+  changed_dir
+    runs-on: ubuntu-latest
+    outputs:
+      dir: ${{ steps.changes.outputs.dir}}
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: get changed directory
+        id: changed_dir 
+        run: |
+          echo "::set-output name=dir::$(git diff --name-only HEAD~1 | awk -F "/*[^/]*/*$" '{ print ($1 == "" ? "." : $1); }' | sort | uniq)"
+      - name: print changed directory 
+        id: print_dir 
+        run: echo ${{outputs.dir}}

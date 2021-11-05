@@ -5,7 +5,7 @@ on:
     branches:
       - 'feature-*'
 jobs:
-  job1:
+  pylint-tf-validate:
     runs-on: ubuntu-latest
     outputs:
       dir: ${{ steps.changes.outputs.dir}}
