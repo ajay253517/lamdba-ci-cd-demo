@@ -24,4 +24,4 @@ jobs:
     if: ${{needs.changed_dir.outputs.dir}}
     steps:
       - name: echo changed files
-        run: echo ${{needs.changedfiles.outputs.dir}}
+        run: echo ${{needs.changed_dir.outputs.dir}}
